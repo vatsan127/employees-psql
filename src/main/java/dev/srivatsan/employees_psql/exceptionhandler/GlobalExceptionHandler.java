@@ -1,7 +1,7 @@
 package dev.srivatsan.employees_psql.exceptionhandler;
 
-import dev.srivatsan.employee_v2.exception.ErrorResponse;
-import dev.srivatsan.employee_v2.exception.UserNotFoundException;
+import dev.srivatsan.employees_psql.exception.ErrorResponse;
+import dev.srivatsan.employees_psql.exception.EmployeeNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -12,8 +12,8 @@ import java.util.Date;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(UserNotFoundException.class)
-    public ResponseEntity<Object> handleUserNotFoundException(UserNotFoundException ex) {
+    @ExceptionHandler(EmployeeNotFoundException.class)
+    public ResponseEntity<Object> handleUserNotFoundException(EmployeeNotFoundException ex) {
         ErrorResponse errorResponse = new ErrorResponse(new Date(), ex.getMessage(), ex.getStatus().value());
         return new ResponseEntity<>(errorResponse, ex.getStatus());
     }

@@ -17,7 +17,7 @@ import java.util.Arrays;
 @ConditionalOnProperty(prefix = "global", value = "debugModeEnabled", havingValue = "true", matchIfMissing = false)
 public class AspectService {
 
-    private static final String POINTCUT_EXEC_FOR_ALL_SERVICE_METHODS = "execution(* dev.srivatsan.employee_v2.service.*.*(..))";
+    private static final String POINTCUT_EXEC_FOR_ALL_SERVICE_METHODS = "execution(* dev.srivatsan.employees_psql.service.  *.*(..))";
 
 /*
 

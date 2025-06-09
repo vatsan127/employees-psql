@@ -1,35 +1,32 @@
 package dev.srivatsan.employees_psql.entity;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
-import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.Objects;
 
-@Data
 @Embeddable
+@Data
 @NoArgsConstructor
-public class DepartmentDetails_CPK implements Serializable {
+@AllArgsConstructor
+public class EmployeeTitle_CPK implements Serializable {
 
-    @Column(name = "emp_id")
     private long empId;
-
-    @Column(name = "dept_id")
-    private String deptId;
+    private long deptId;
 
     @Override
     public boolean equals(Object o) {
+        if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        DepartmentDetails_CPK that = (DepartmentDetails_CPK) o;
-        return empId == that.empId && Objects.equals(deptId, that.deptId);
+        EmployeeTitle_CPK employeeTitleCPK = (EmployeeTitle_CPK) o;
+        return empId == employeeTitleCPK.empId && deptId == employeeTitleCPK.deptId;
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(empId, deptId);
     }
-
 }

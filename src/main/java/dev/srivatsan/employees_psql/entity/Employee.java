@@ -17,10 +17,10 @@ public class Employee {
     private String gender;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumns({
-            @JoinColumn(name = "emp_id", referencedColumnName = "emp_id"),
-            @JoinColumn(name = "dept_id", referencedColumnName = "dept_id")
-    })
-    private DepartmentDetails departmentDetails;
+    @JoinColumn(name = "deptId", referencedColumnName = "deptId")
+    private Department department;
+
+    @OneToOne(mappedBy = "employee", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private EmployeeTitle title;
 
 }

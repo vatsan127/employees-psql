@@ -16,12 +16,7 @@ public class EmployeeTitle {
     private EmployeeTitle_CPK employeeTitleCPK;
     private String titleName;
 
-    @OneToOne
-    @JoinColumn(name = "empId", insertable = false, updatable = false)
+    @OneToOne(mappedBy = "title")
     private Employee employee;
-
-    @OneToOne
-    @JoinColumn(name = "deptId", insertable = false, updatable = false)
-    private Department department;
 
 }

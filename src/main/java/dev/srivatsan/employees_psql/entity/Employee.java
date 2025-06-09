@@ -20,7 +20,11 @@ public class Employee {
     @JoinColumn(name = "deptId", referencedColumnName = "deptId")
     private Department department;
 
-    @OneToOne(mappedBy = "employee", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToOne
+    @JoinColumns({
+            @JoinColumn(name = "id", referencedColumnName = "empId", insertable = false, updatable = false),
+            @JoinColumn(name = "deptId", referencedColumnName = "deptId", insertable = false, updatable = false)
+    })
     private EmployeeTitle title;
 
 }

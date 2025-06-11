@@ -1,5 +1,6 @@
 package dev.srivatsan.employees_psql.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,7 +17,8 @@ public class EmployeeTitle {
     private EmployeeTitle_CPK employeeTitleCPK;
     private String titleName;
 
-    @OneToOne(mappedBy = "title")
+    @JsonIgnore
+    @OneToOne(mappedBy = "title", fetch = FetchType.LAZY)
     private Employee employee;
 
 }

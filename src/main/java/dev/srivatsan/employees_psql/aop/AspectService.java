@@ -1,5 +1,7 @@
 package dev.srivatsan.employees_psql.aop;
 
+import jakarta.annotation.PostConstruct;
+import jakarta.persistence.PersistenceContext;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
@@ -17,7 +19,7 @@ import java.util.Arrays;
 @ConditionalOnProperty(prefix = "global", value = "debugModeEnabled", havingValue = "true", matchIfMissing = false)
 public class AspectService {
 
-    private static final String POINTCUT_EXEC_FOR_ALL_SERVICE_METHODS = "execution(* dev.srivatsan.employees_psql.service.  *.*(..))";
+    private static final String POINTCUT_EXEC_FOR_ALL_SERVICE_METHODS = "execution(* dev.srivatsan.employees_psql.service.*.*(..))";
 
 /*
 
@@ -51,4 +53,10 @@ public class AspectService {
 
         log.info(message.toString());
     }
+
+    @PostConstruct
+    public void init() {
+        log.info("Aspect Service Initialized");
+    }
+
 }

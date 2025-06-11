@@ -14,7 +14,7 @@ spring:
   profiles.active: ${SPRING_PROFILES_ACTIVE:postgres}
   #  banner.location: banner.txt
   jpa:
-    hibernate.ddl-auto: create # none
+    hibernate.ddl-auto: none # create
     show-sql: true
     properties.hibernate:
       dialect: org.hibernate.dialect.PostgreSQLDialect
